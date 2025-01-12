@@ -4,8 +4,8 @@ import "./Nav.css";
 
 function Nav() {
   return (
-    <nav>\
-      <p>radi li</p>
+    <nav>
+      
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
       <Link to="/movie-details">MovieDetails</Link>
