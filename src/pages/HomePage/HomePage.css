@@ -74,3 +74,10 @@
 .tv-shows-container{
     background-color: var(--primary);
 }
+.all-movies{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
