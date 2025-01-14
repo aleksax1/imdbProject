@@ -17,13 +17,17 @@ const CustomCard = ({movie}) => {
                 <Typography gutterBottom variant="h6" component="div">
                 {movie.title}
                 </Typography>
-                <Typography variant="body2"  sx={{ color: 'text.secondary' }}>
-                <p>Genre: {movie.genre}</p> 
-                <p>Year: {movie.year}</p> 
-                
-                <p>Rating: {movie.rating}/10</p> 
+                <Typography variant="body1"  sx={{ color: 'text.secondary' }}>
+                Genre: {movie.genre}  
                 </Typography>
                 
+                <Typography variant="body1"  sx={{ color: 'text.secondary' }}> 
+                Year: {movie.year}   
+                </Typography>
+
+                <Typography variant="body1"  sx={{ color: 'text.secondary' }}> 
+                Rating: {movie.rating}/10 
+                </Typography>
             </CardContent>
             <CardActions> 
                 <Button size="small">More...</Button>

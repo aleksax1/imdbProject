@@ -1,8 +1,31 @@
-import React from "react"; 
+import React, { useEffect } from "react"; 
 import "./Homepage.css";  
 import CustomCard from "../../components/CustomCard/CustomCard";
-import { Button } from "@mui/material";
+import { Pagination } from "@mui/material";
 function HomePage() {
+
+  // const customFetch = async() => {
+     
+  //   const options = {
+  //     method: 'GET',
+  //     url: 'https://imdb236.p.rapidapi.com/imdb/most-popular-movies',
+  //     headers: {
+  //       'x-rapidapi-key': '7367662a9emsh03bb7949f70dc3ap1d118ajsnf69489cff925',
+  //       'x-rapidapi-host': 'imdb236.p.rapidapi.com'
+  //     }
+  //   };
+
+  //   try {
+  //     const response = await axios.request(options);
+  //     console.log(response.data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+  // useEffect(()=>{
+  //   customFetch();
+  // },[])
+
   const movies=[
     {
       title: "Inside Out",
@@ -80,12 +103,25 @@ function HomePage() {
                 movies.map(movie=>(
                   <CustomCard movie={movie} key={movie.poster}/> 
                 ))
-              }
-              
- 
+              } 
             </div>
             
          </div> 
+      </section>  
+
+      <section className="top-featured all-movies">
+         <div className="top-featured-container ">
+            <h1>All MOVIES</h1>
+              <div className="top-featured-posters">
+              {
+                movies.map(movie=>(
+                  <CustomCard movie={movie} key={movie.poster}/> 
+                ))
+              } 
+              </div>
+            </div> 
+            <Pagination count={10} color="primary" />
+         
       </section>  
     </main>
   );
