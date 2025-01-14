@@ -1,0 +1,65 @@
+* {
+  background-color: rgb(185, 229, 232);
+  padding: 0;
+  margin: 0;
+}
+.glavni {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3vw;
+  padding: 5vh;
+}
+.glavni div {
+  height: 28vh;
+  width: 38vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7ab2d3;
+  border-radius: 2vh;
+  gap: 0vw;
+}
+.glavni div img {
+  max-width: 20vw;
+  max-height: 20vh;
+  width: 20vh;
+  height: 20vh;
+  background-color: rgb(122, 178, 211);
+  object-fit: cover;
+}
+.txt {
+  display: flex;
+  flex-direction: column;
+}
+
+.txt h3 {
+  background-color: #7ab2d3;
+  color: aliceblue;
+}
+.kartica div {
+  width: 45%;
+}
+.kartica {
+  gap: 1vw;
+}
+.moj-btn {
+  background-color: #7ab2d3;
+  color: white;
+  font-size: 2vh;
+
+  cursor: pointer;
+}
+.moj-btn:hover {
+  color: #7ab2d3;
+  background-color: white;
+}
+.text-div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+    padding: 10vh;
+    
+}
