@@ -57,6 +57,7 @@
     
 }
 .top-featured-container{
+    padding: 10px;
     width: 1000px;
 }
 .top-featured h1{
@@ -70,3 +71,6 @@
     justify-items: center; 
      
 } 
+.tv-shows-container{
+    background-color: var(--primary);
+}

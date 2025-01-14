@@ -1,7 +1,7 @@
 import React from "react"; 
 import "./Homepage.css";  
 import CustomCard from "../../components/CustomCard/CustomCard";
-
+import { Button } from "@mui/material";
 function HomePage() {
   const movies=[
     {
@@ -59,7 +59,7 @@ function HomePage() {
       
       <section className="top-featured">
          <div className="top-featured-container">
-            <h1>TOP FEATURED</h1>
+            <h1>TOP FEATURED MOVIES</h1>
             <div className="top-featured-posters">
               {
                 movies.map(movie=>(
@@ -69,9 +69,23 @@ function HomePage() {
               
  
             </div>
-         </div>
-         
-         
+            
+         </div> 
+      </section>  
+      <section className="top-featured .tv-shows-container">
+         <div className="top-featured-container">
+            <h1>TOP FEATURED TV SHOWS</h1>
+            <div className="top-featured-posters">
+              {
+                movies.map(movie=>(
+                  <CustomCard movie={movie} key={movie.poster}/> 
+                ))
+              }
+              
+ 
+            </div>
+            
+         </div> 
       </section>  
     </main>
   );
