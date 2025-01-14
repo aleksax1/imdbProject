@@ -1,12 +1,6 @@
 import React from "react"; 
-import "./Homepage.css"; 
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { Rating } from "@mui/material";
+import "./Homepage.css";  
+import CustomCard from "../../components/CustomCard/CustomCard";
 
 function HomePage() {
   const movies=[
@@ -69,27 +63,7 @@ function HomePage() {
             <div className="top-featured-posters">
               {
                 movies.map(movie=>(
-                  <Card  sx={{ width:180 }} >
-                    <CardMedia
-                      sx={{ height:300 }} 
-                      image={movie.poster} 
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h6" component="div">
-                        {movie.title}
-                      </Typography>
-                      <Typography variant="body2"  sx={{ color: 'text.secondary' }}>
-                       <p>Genre: {movie.genre}</p> 
-                       <p>Year: {movie.year}</p> 
-                       
-                       <p>Rating: {movie.rating}/10</p> 
-                      </Typography>
-                      
-                    </CardContent>
-                    <CardActions> 
-                      <Button size="small">More...</Button>
-                    </CardActions>
-                  </Card>
+                  <CustomCard movie={movie} key={movie.poster}/> 
                 ))
               }
               
