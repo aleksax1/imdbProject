@@ -17,7 +17,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<About />} />
             <Route path="/all-movies" element={<AllMovies />} />
-            <Route path="/movie-details" element={<MovieDetails />} />
+            <Route path="/movie-details/:id" element={<MovieDetails />} />
           </Routes>
         </BrowserRouter>
       </ApiProvider>
