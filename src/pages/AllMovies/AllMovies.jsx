@@ -1,14 +1,69 @@
-import React from 'react'
-import "./AllMovies.css"
+import React, { useEffect, useState } from "react";
+import "./AllMovies.css";
+import axiosInstance from "../../ApiConfig/AxiosInstance";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 
 function AllMovies() {
-  
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      setLoading(true);
+      try {
+        const response = await axiosInstance.get("/");
+        setMovies(response.data);
+        console.log(response.data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMovies();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
-    <div>
-      All movies component
-      
+    <div className='movies-container'>
+      {movies.map((movie, index) => (
+        <Card
+          key={index}
+          className='movie-card'
+          sx={{
+            maxWidth: 345,
+            marginBottom: 2,
+            backgroundColor: "#2f2f34",
+            color: "white",
+          }}
+        >
+          <CardContent>
+            <img src={movie.big_image} alt={movie.title} />
+            <Typography gutterBottom variant='h5' component='div'>
+              {movie.title}
+            </Typography>
+            <Typography variant='body2' sx={{ color: "white" }}>
+              <strong style={{ fontSize: "18px", fontWeight: "bold" }}>
+                Year: {movie.year}
+              </strong>
+            </Typography>
+            <Typography variant='body2' sx={{ color: "white", marginTop: 1 }}>
+              <strong style={{ fontSize: "18px", fontWeight: "bold" }}>
+                {" "}
+                Rating: {movie.rating} / 10
+              </strong>
+            </Typography>
+          </CardContent>
+        </Card>
+      ))}
     </div>
-  )
+  );
 }
 
-export default AllMovies
+export default AllMovies;
