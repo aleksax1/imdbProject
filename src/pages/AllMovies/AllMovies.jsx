@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./AllMovies.css";
 import axiosInstance from "../../ApiConfig/AxiosInstance";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 
 function AllMovies() {
   const [movies, setMovies] = useState([]);
@@ -28,17 +31,37 @@ function AllMovies() {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
-      <ul>
-        {movies.map((movie, index) => (
-          <li key={index}>
-            <h1>{movie.title}</h1>({movie.year})
-            <img src={movie.thumbnail} alt='img' />
-            {/* <img src={movie.big_image} alt='img' /> */}
-          </li>
-        ))}
-      </ul>
-      <h1>nesto</h1>
+    <div className='movies-container'>
+      {movies.map((movie, index) => (
+        <Card
+          key={index}
+          className='movie-card'
+          sx={{
+            maxWidth: 345,
+            marginBottom: 2,
+            backgroundColor: "#2f2f34",
+            color: "white",
+          }}
+        >
+          <CardContent>
+            <img src={movie.big_image} alt={movie.title} />
+            <Typography gutterBottom variant='h5' component='div'>
+              {movie.title}
+            </Typography>
+            <Typography variant='body2' sx={{ color: "white" }}>
+              <strong style={{ fontSize: "18px", fontWeight: "bold" }}>
+                Year: {movie.year}
+              </strong>
+            </Typography>
+            <Typography variant='body2' sx={{ color: "white", marginTop: 1 }}>
+              <strong style={{ fontSize: "18px", fontWeight: "bold" }}>
+                {" "}
+                Rating: {movie.rating} / 10
+              </strong>
+            </Typography>
+          </CardContent>
+        </Card>
+      ))}
     </div>
   );
 }
