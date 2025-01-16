@@ -14,10 +14,10 @@ function App() {
         <BrowserRouter>
           <Nav />
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/all-movies" element={<AllMovies />} />
-            <Route path="/movie-details" element={<MovieDetails />} />
+            <Route path='/' element={<HomePage />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/all-movies' element={<AllMovies />} />
+            <Route path='/movie-details' element={<MovieDetails />} />
           </Routes>
         </BrowserRouter>
       </ApiProvider>

@@ -42,6 +42,7 @@ function AllMovies() {
             backgroundColor: "#2f2f34",
             color: "white",
           }}
+          onClick={() => Navigate("/movie-details")}
         >
           <CardContent>
             <img src={movie.big_image} alt={movie.title} />
