@@ -41,9 +41,7 @@ function HomePage() {
       rating:10
     }
   ];
-
-
-
+ 
   return (
     <main className="home-page">
       <section className="banner">  
