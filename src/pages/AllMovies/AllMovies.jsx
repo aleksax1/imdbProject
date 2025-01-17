@@ -4,6 +4,8 @@ import axiosInstance from "../../ApiConfig/AxiosInstance";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function AllMovies() {
   const [movies, setMovies] = useState([]);
@@ -27,7 +29,18 @@ function AllMovies() {
     fetchMovies();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+        }}
+      >
+        <CircularProgress size='3rem' />
+      </div>
+    );
   if (error) return <p>Error: {error}</p>;
 
   return (
