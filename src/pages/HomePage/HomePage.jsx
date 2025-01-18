@@ -14,11 +14,11 @@ function HomePage() {
     try{
       const response = await axiosInstance.get("/");
       const fetchedMovies = response.data;
-
-      fetchedMovies.filter()
-
-      setMovies(fetchedMovies);
-      console.log(response.data);
+ 
+      let topMovies = []; 
+      topMovies = fetchedMovies.sort((a,b)=>a.rank - b.rank);
+      topMovies = topMovies.slice(0,5);
+      setMovies(topMovies); 
     }catch(err){
       setError(err.message + "Something went terribly wrong");
     }finally{
@@ -62,34 +62,7 @@ function HomePage() {
             
          </div> 
       </section>  
-      <section className="top-featured .tv-shows-container">
-         <div className="top-featured-container">
-            <h1>TOP FEATURED TV SHOWS</h1>
-            <div className="top-featured-posters">
-              {
-                movies.map(movie=>(
-                  <CustomCard movie={movie} key={movie.poster}/> 
-                ))
-              } 
-            </div>
-            
-         </div> 
-      </section>  
-
-      <section className="top-featured all-movies">
-         <div className="top-featured-container ">
-            <h1>All MOVIES</h1>
-              <div className="top-featured-posters">
-              {
-                movies.map(movie=>(
-                  <CustomCard movie={movie} key={movie.poster}/> 
-                ))
-              } 
-              </div>
-            </div> 
-            <Pagination count={10} color="primary" />
-         
-      </section>  
+       
     </main>
   );
 } 
