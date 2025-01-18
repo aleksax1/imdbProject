@@ -11,7 +11,7 @@ const CustomCard = ({movie}) => {
         <Card  sx={{ width:180 }} >
             <CardMedia
                 sx={{ height:300 }} 
-                image={movie.poster} 
+                image={movie.big_image} 
             />
             <CardContent>
                 <Typography gutterBottom variant="h6" component="div">

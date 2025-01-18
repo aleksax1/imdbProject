@@ -1,47 +1,38 @@
-import React, { useEffect } from "react"; 
+import React, { useEffect, useState } from "react"; 
 import "./Homepage.css";  
 import CustomCard from "../../components/CustomCard/CustomCard";
 import { Pagination } from "@mui/material";
+import axiosInstance from "../../ApiConfig/AxiosInstance";
 function HomePage() {
  
-  const movies=[
-    {
-      title: "Inside Out",
-      poster: "https://m.media-amazon.com/images/M/MV5BOTgxMDQwMDk0OF5BMl5BanBnXkFtZTgwNjU5OTg2NDE@._V1_FMjpg_UX1000_.jp",
-      genre: 'Animated',
-      year: '2015',
-      rating:8
-    },
-    {
-      title: "Speed",
-      poster: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BYjc0MjYyN2EtZGRhMy00NzJiLWI2Y2QtYzhiYTU3NzAxNzg4XkEyXkFqcGdeQXVyMTQxNzMzNDI%40._V1_.jpg&f=1&nofb=1&ipt=d489b1ea5047009246d3677b84bdcfc422fc786318ea2fa7ae872abb799f42bc&ipo=images",
-      genre: 'Action',
-      year: '1995',
-      rating:9
-    },
-    {
-      title: "Dredd",
-      poster: "https://m.media-amazon.com/images/M/MV5BODkyNDQzMzUzOF5BMl5BanBnXkFtZTcwODYyMDEyOA@@._V1_.jpg",
-      genre: 'Action',
-      year: '2012',
-      rating:8
-    },
-    {
-      title: "I saw the Devil",
-      poster: "https://upload.wikimedia.org/wikipedia/en/9/91/I_Saw_the_Devil_film_poster.jpg",
-      genre: 'Horror',
-      year: '2010',
-      rating:9
-    },
-    {
-      title: "Good Will Hunting",
-      poster: "https://m.media-amazon.com/images/M/MV5BNDdjZGQ5YzEtNTc2My00Mjc0LWFlMTctYzkwMzZlNzdiZWYzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-      genre: 'Drama Comedy',
-      year: '2010',
-      rating:10
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const fetchMovies = async () =>{
+    setLoading(true);
+    try{
+      const response = await axiosInstance.get("/");
+      const fetchedMovies = response.data;
+
+      fetchedMovies.filter()
+
+      setMovies(fetchedMovies);
+      console.log(response.data);
+    }catch(err){
+      setError(err.message + "Something went terribly wrong");
+    }finally{
+      setLoading(false);
     }
-  ];
+  };
+  useEffect(()=>{   
+    fetchMovies();
+  },[]);
+  
  
+  if(loading) return <p>Loading...</p>;
+  if(error) return <p>Error:{error}</p>;
+
   return (
     <main className="home-page">
       <section className="banner">  

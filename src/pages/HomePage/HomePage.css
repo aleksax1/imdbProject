@@ -1,9 +1,4 @@
-:root{
-    --primary: #4A628A;
-    --primary-light: #7AB2D3;
-    --secondary:#B9E5E8;
-    --secondary-light:#DFF2EB;
-}
+ 
 .home-page{
     display: flex;
     flex-direction: column;
