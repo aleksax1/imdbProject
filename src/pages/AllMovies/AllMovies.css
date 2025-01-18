@@ -11,6 +11,10 @@
   text-align: center;
   padding: 10px;
   box-sizing: border-box;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.movie-card:hover {
+  background-color: rgb(74, 73, 73);
 }
 
 .movie-card img {

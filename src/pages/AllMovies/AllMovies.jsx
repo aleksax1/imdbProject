@@ -5,7 +5,11 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
+import { useNavigate } from "react-router-dom";
+
+
 function AllMovies() {
+  const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -16,7 +20,6 @@ function AllMovies() {
       try {
         const response = await axiosInstance.get("/");
         setMovies(response.data);
-        console.log(response.data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -27,33 +30,49 @@ function AllMovies() {
     fetchMovies();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+        }}
+      >
+        <CircularProgress size='3rem' />
+      </div>
+    );
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className='movies-container'>
+    <div className="movies-container">
       {movies.map((movie, index) => (
         <Card
           key={index}
-          className='movie-card'
+          className="movie-card"
           sx={{
             maxWidth: 345,
             marginBottom: 2,
             backgroundColor: "#2f2f34",
             color: "white",
           }}
+
+          onClick={() => Navigate("/movie-details")}
+
+          onClick={() => navigate(`/movie-details/${movie.id}`)}
+
         >
           <CardContent>
             <img src={movie.big_image} alt={movie.title} />
-            <Typography gutterBottom variant='h5' component='div'>
+            <Typography gutterBottom variant="h5" component="div">
               {movie.title}
             </Typography>
-            <Typography variant='body2' sx={{ color: "white" }}>
+            <Typography variant="body2" sx={{ color: "white" }}>
               <strong style={{ fontSize: "18px", fontWeight: "bold" }}>
                 Year: {movie.year}
               </strong>
             </Typography>
-            <Typography variant='body2' sx={{ color: "white", marginTop: 1 }}>
+            <Typography variant="body2" sx={{ color: "white", marginTop: 1 }}>
               <strong style={{ fontSize: "18px", fontWeight: "bold" }}>
                 {" "}
                 Rating: {movie.rating} / 10
