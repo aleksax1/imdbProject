@@ -57,7 +57,6 @@ function AllMovies() {
             backgroundColor: "#2f2f34",
             color: "white",
           }}
-
           onClick={() => navigate(`/movie-details/${movie.id}`)}
         >
           <CardContent>
