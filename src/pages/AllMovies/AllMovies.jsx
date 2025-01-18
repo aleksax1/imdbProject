@@ -4,7 +4,9 @@ import axiosInstance from "../../ApiConfig/AxiosInstance";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+
 import { useNavigate } from "react-router-dom";
+
 
 function AllMovies() {
   const navigate = useNavigate();
@@ -18,7 +20,6 @@ function AllMovies() {
       try {
         const response = await axiosInstance.get("/");
         setMovies(response.data);
-        console.log(response.data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -29,7 +30,18 @@ function AllMovies() {
     fetchMovies();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+        }}
+      >
+        <CircularProgress size='3rem' />
+      </div>
+    );
   if (error) return <p>Error: {error}</p>;
 
   return (
@@ -44,7 +56,11 @@ function AllMovies() {
             backgroundColor: "#2f2f34",
             color: "white",
           }}
+
+          onClick={() => Navigate("/movie-details")}
+
           onClick={() => navigate(`/movie-details/${movie.id}`)}
+
         >
           <CardContent>
             <img src={movie.big_image} alt={movie.title} />
