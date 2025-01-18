@@ -5,6 +5,7 @@ import AJ from "./profile-picAJ.png";
 import AM from "./profile-picAM.png";
 import EM from "./profile-picEM.png";
 import MC from "./profile-picMC.png";
+import { Button } from "@mui/material";
 
 function About() {
   const [seeMore, setSeeMore] = useState(false);
@@ -68,7 +69,7 @@ function About() {
           life!
         </h2>
 
-        <button
+        <Button
           className="moj-btn"
           onClick={seeMoreFunction}
           style={{
@@ -79,7 +80,8 @@ function About() {
           }}
         >
           See our team
-        </button>
+        </Button>
+
       </div>
         
       {seeMore && (
