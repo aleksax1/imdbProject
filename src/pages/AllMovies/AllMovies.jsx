@@ -18,7 +18,6 @@ function AllMovies() {
       try {
         const response = await axiosInstance.get("/");
         setMovies(response.data);
-        console.log(response.data);
       } catch (err) {
         setError(err.message);
       } finally {
