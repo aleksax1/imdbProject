@@ -5,8 +5,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography'; 
+import { useNavigate } from 'react-router-dom';
 
 const CustomCard = ({movie}) => {
+const navigate = useNavigate();
+
     return ( 
         <Card  sx={{ width:180 }} >
             <CardMedia
@@ -30,7 +33,10 @@ const CustomCard = ({movie}) => {
                 </Typography>
             </CardContent>
             <CardActions> 
-                <Button size="small">More...</Button>
+                <Button 
+                size="small"
+                onClick={() => navigate(`/movie-details/${movie.id}`)}
+                >More...</Button>
             </CardActions>
         </Card>
      );
