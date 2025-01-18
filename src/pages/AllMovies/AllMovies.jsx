@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
 import { useNavigate } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
 
 
 function AllMovies() {
@@ -56,8 +57,6 @@ function AllMovies() {
             backgroundColor: "#2f2f34",
             color: "white",
           }}
-
-          onClick={() => Navigate("/movie-details")}
 
           onClick={() => navigate(`/movie-details/${movie.id}`)}
 

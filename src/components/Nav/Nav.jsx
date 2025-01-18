@@ -15,13 +15,7 @@ function Nav() {
         <NavLink to="/about" className="nav-link" activeClassName="active-link">
           About
         </NavLink>
-        <NavLink
-          to="/movie-details"
-          className="nav-link"
-          activeClassName="active-link"
-        >
-          Movie Details
-        </NavLink>
+       
         <NavLink
           to="/all-movies"
           className="nav-link"

@@ -3,7 +3,7 @@ import axios from "axios";
 const axiosInstance = axios.create({
   baseURL: "https://imdb-top-100-movies.p.rapidapi.com/",
   headers: {
-    "x-rapidapi-key": "5dfc9fc891msh27e712e0169a254p1eadc9jsn26e8c5335ba7",
+    "x-rapidapi-key": "9d0854d821msh0bed84fb0a71f18p1e55e5jsnee1ba0f8cfc8",
     "x-rapidapi-host": "imdb-top-100-movies.p.rapidapi.com",
   },
 });
