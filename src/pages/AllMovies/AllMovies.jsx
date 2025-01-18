@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import "./AllMovies.css";
-import axiosInstance from "../../ApiConfig/AxiosInstance";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import React, { useEffect, useState } from "react";
+import axiosInstance from "../../ApiConfig/AxiosInstance";
+import "./AllMovies.css";
 
 import { useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
@@ -40,7 +40,7 @@ function AllMovies() {
           left: "50%",
         }}
       >
-        <CircularProgress size='3rem' />
+        <CircularProgress size="3rem" />
       </div>
     );
   if (error) return <p>Error: {error}</p>;
@@ -59,7 +59,6 @@ function AllMovies() {
           }}
 
           onClick={() => navigate(`/movie-details/${movie.id}`)}
-
         >
           <CardContent>
             <img src={movie.big_image} alt={movie.title} />
