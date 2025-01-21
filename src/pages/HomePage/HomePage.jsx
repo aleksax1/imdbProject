@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"; 
 import "./Homepage.css";  
-import CustomCard from "../../components/CustomCard/CustomCard";
-import { Pagination } from "@mui/material";
+import CustomCard from "../../components/CustomCard/CustomCard"; 
 import axiosInstance from "../../ApiConfig/AxiosInstance";
 function HomePage() {
  
@@ -38,7 +37,6 @@ function HomePage() {
       <section className="banner">  
         <div className="trailer">
           <img src="https://pm1.narvii.com/6252/ee8743cf74bfc0c3d9b69322922730a73bfb0e26_hq.jpg" className="trailer-preview" alt="" />
-       
           <div className="trailer-preview-info">
             <img src="https://m.media-amazon.com/images/M/MV5BOTgxMDQwMDk0OF5BMl5BanBnXkFtZTgwNjU5OTg2NDE@._V1_FMjpg_UX1000_.jpg" alt="" className="movie-poster" />
           <h1 className="movie-name">Inside out</h1>
@@ -49,15 +47,13 @@ function HomePage() {
       
       <section className="top-featured">
          <div className="top-featured-container">
-            <h1>TOP FEATURED MOVIES</h1>
+            <h1 style={{color:'white'}}>TOP FEATURED MOVIES</h1>
             <div className="top-featured-posters">
               {
                 movies.map(movie=>(
                   <CustomCard movie={movie} key={movie.poster}/> 
                 ))
-              }
-              
- 
+              } 
             </div>
             
          </div> 
